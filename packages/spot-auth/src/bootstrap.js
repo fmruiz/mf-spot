@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createMemoryHistory } from 'history';
+import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 /**
  * Mount fn to start up the application
  */
-const mount = (el, { onNavigate }) => {
-    const history = createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory }) => {
+    const history = defaultHistory || createMemoryHistory();
 
     /**
      * Listen the navigation events from spot-container
@@ -17,6 +17,17 @@ const mount = (el, { onNavigate }) => {
     }
 
     ReactDOM.render(<App history={history} />, el);
+
+    return {
+        /**
+         * Spot-container has navigate and communicate to the others MF
+         */
+        onParentNavigate({ pathname: nextPathname }) {
+            if (history.location.pathname !== nextPathname) {
+                history.push(nextPathname);
+            }
+        },
+    };
 };
 
 /**
@@ -26,7 +37,7 @@ if (process.env.NODE_ENV === 'development') {
     const devRoot = document.querySelector('#_auth-dev-root');
 
     if (devRoot) {
-        mount(devRoot, {});
+        mount(devRoot, { defaultHistory: creacreateBrowserHistory() });
     }
 }
 
