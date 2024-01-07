@@ -21,9 +21,6 @@ const devConfig = {
             },
             shared: packageJson.dependencies,
         }),
-        new HTMLWebpackPlugin({
-            template: './public/index.html',
-        }),
     ],
 };
 
