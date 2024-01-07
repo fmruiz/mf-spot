@@ -7,14 +7,14 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/spot-auth/latest/',
+        publicPath: '/spot-dashboard/latest/',
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'spot_auth',
+            name: 'spot_dashboard',
             filename: 'remoteEntry.js',
             exposes: {
-                './SpotAuthApp': './src/bootstrap',
+                './SpotDashboardApp': './src/bootstrap',
             },
             shared: packageJson.dependencies,
         }),

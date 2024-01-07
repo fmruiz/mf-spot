@@ -8,6 +8,7 @@ import {
 import Header from './components/Header/Header';
 
 const AuthAppLazy = lazy(() => import('./components/AuthApp'));
+const DashboardAppLazy = lazy(() => import('./components/DashboardApp'));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'co',
@@ -26,6 +27,7 @@ export default () => {
                     <Suspense fallback={Loading}>
                         <Switch>
                             <Route path={'/auth'} component={AuthAppLazy} />
+                            <Route path={'/'} component={DashboardAppLazy} />
                         </Switch>
                     </Suspense>
                 </div>

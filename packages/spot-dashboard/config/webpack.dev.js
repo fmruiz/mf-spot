@@ -6,18 +6,21 @@ const { merge } = require('webpack-merge');
 
 const devConfig = {
     mode: 'development',
+    output: {
+        publicPath: 'http://localhost:8082/',
+    },
     devServer: {
-        port: 8081,
+        port: 8082,
         historyApiFallback: {
             index: '/index.html',
         },
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'spot_auth',
+            name: 'spot_dashboard',
             filename: 'remoteEntry.js',
             exposes: {
-                './SpotAuthApp': './src/bootstrap',
+                './SpotDashboardApp': './src/bootstrap',
             },
             shared: packageJson.dependencies,
         }),

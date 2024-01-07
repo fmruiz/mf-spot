@@ -16,6 +16,7 @@ const prodConfig = {
             name: 'spot_container',
             remotes: {
                 SpotAuthModule: `spot_auth@${domain}/spot-auth/latest/remoteEntry.js`,
+                SpotDashboardModule: `spot_dashboard@${domain}/spot-dashboard/latest/remoteEntry.js`,
             },
             shared: packageJson.dependencies,
         }),
