@@ -15,7 +15,7 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name: 'spot_container',
             remotes: {
-                SpotAuthModule: `spot_auth@${domain}/auth/remoteEntry.js`,
+                SpotAuthModule: `spot_auth@${domain}/spot-auth/latest/remoteEntry.js`,
             },
             shared: packageJson.dependencies,
         }),
