@@ -22,6 +22,8 @@ const devConfig = {
                     'spot_auth@http://localhost:8081/remoteEntry.js',
                 SpotDashboardModule:
                     'spot_dashboard@http://localhost:8082/remoteEntry.js',
+                SpotSettingsModule:
+                    'spot_settings@http://localhost:8083/remoteEntry.js',
             },
             shared: packageJson.dependencies,
         }),
