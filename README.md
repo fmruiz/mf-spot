@@ -1,5 +1,7 @@
 # SPOT MICROFRONTENDS - DOCUMENTACION
 
+![mf](draw.png)
+
 ## Como trabajan los microfrontends?
 Los microfrontends son una forma de desarrollar aplicaciones web dividiéndolas en partes más pequeñas e independientes, cada una siendo una parte de la interfaz de usuario. Esto permite que diferentes equipos de desarrollo trabajen en secciones específicas de la aplicación de manera separada, lo que facilita la escalabilidad, el mantenimiento y la implementación de cambios.
 
