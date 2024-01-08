@@ -11,7 +11,7 @@ const prodConfig = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'spot_auth',
+            name: 'spot_settings',
             filename: 'remoteEntry.js',
             exposes: {
                 './SpotSettingsApp': './src/bootstrap',
