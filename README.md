@@ -28,6 +28,16 @@ Utilizamos webpack, react, vue, react-router-dom, material-ui, css vanilla, gith
 
 ## Potenciales desafio usando esta arquitectura
 Demasiada configuracion previa para iniciar el proyecto, primero debemos encarar una solucion con webpack de forma local para levantar el primer microfrontend de forma aislada, luego crear una configuracion de webpack para produccion usando el plugin de module federation que nos ofrece webpack, e ir conectando los MF con su contenedor, una vez que realizamos esta ardua tarea, ya es sencillo seguir avanzando en crear mas y mas MFS a demanda y necesidad
+
+## Como se deploya a produccion?
+Cada proyecto tiene su yml con una serie de steps que se ejecutaran en los actions de github cada vez que ocurra un cambio dentro del respectivo proyecto.
+En cada yml se establece por default un directorio de trabajo (directorio root de cada proyecto), se asigna una maquina virtual donde correra cada step y se ejecutan los comandos necesarios para realizar el build de produccion, subirlos a un bucket de s3 previamente configurado en una cuenta, y luego servir esos archivos estaticos usando aws cloudfront.
+
+## Que tiene que pasar para que este pipeline o action se ejecute?
+Cada vez que ocurra cambios en la rama master, se ejecutara un pipeline especifico segun que cambios se hicieron en determinado proyecto.
+Ejemplo: 
+    Se hicieron cambios dentro de spot-dashboard entonces se ejecutara spot-dashboard.yml
+
 ## Como levantar el proyecto localmente
 
 Clonar el proyecto
